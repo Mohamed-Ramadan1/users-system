@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styles from './UserData.module.css'
+import Button from '../Button/Button';
 
 
 const UserData = () => {
@@ -30,6 +31,7 @@ const UserData = () => {
                 <label>Enter User Age</label>
                 <input type='number' value={ageInput} onChange={(event) => changeHandler(event, setAgeInput)} />
             </div>
+            <Button type="submit" text="Add User"/>
         </form>
     )
 }

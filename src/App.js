@@ -12,9 +12,6 @@ function App() {
     setData(userInfo)
   }
 
-
-
-
   return (
     <div className="App">
       <Header />

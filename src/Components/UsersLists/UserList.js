@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 import styles from './UserList.module.css'
 
-
+ 
 const UserList = ({data}) => {
     const [dataArray, setDataArray] = useState([]);
     
@@ -15,7 +15,7 @@ const UserList = ({data}) => {
 
     return (
         <div className={styles.users}>
-            <ul>
+            <ul >
                 {dataArray.map((item, index) => (
                 <li key={index}>{`${item.name}  (Your age is ${item.age} year)`}</li> // Assuming 'name' is a property in the object
         ))}

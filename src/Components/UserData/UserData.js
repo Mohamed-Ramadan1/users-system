@@ -11,7 +11,7 @@ const UserData = () => {
         setter(event.target.value);
     }
     const submitHandler = (event) => {
-        event.preventDefualt()
+        event.preventDefault();
         resetData();
     }
 
@@ -24,14 +24,22 @@ const UserData = () => {
         <form onSubmit={submitHandler}>
             <div className={styles.input}>
                 <label>Enter User Name</label>
-                <input type='text' value={userNameInput} onChange={(event)=>changeHandler(event,setUserNameInput)} />
+                <input
+                    type='text'
+                    value={userNameInput || ""}
+                    onChange={(event) => changeHandler(event, setUserNameInput)} />
             </div>
 
             <div className={styles.input}>
                 <label>Enter User Age</label>
-                <input type='number' value={ageInput} onChange={(event) => changeHandler(event, setAgeInput)} />
+                <input
+                    type='number'
+                    value={ageInput || ""}
+                    onChange={(event) => changeHandler(event, setAgeInput)} />
             </div>
-            <Button type="submit" text="Add User"/>
+            <div className={styles.button}>
+                <Button type="submit" text="Add User"/>
+            </div>
         </form>
     )
 }

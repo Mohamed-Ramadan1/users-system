@@ -3,15 +3,22 @@ import styles from './UserData.module.css'
 import Button from '../Button/Button';
 
 
-const UserData = () => {
+const UserData = (props) => {
     const [userNameInput, setUserNameInput] = useState("");
     const [ageInput, setAgeInput] = useState(null);
 
     const changeHandler = (event,setter) => {
         setter(event.target.value);
     }
+
     const submitHandler = (event) => {
         event.preventDefault();
+        const data = {
+            name: userNameInput,
+            age: ageInput
+        }
+        props.onSaveData(data)
+
         resetData();
     }
 

@@ -5,7 +5,7 @@ import Button from '../Button/Button';
 
 const UserData = (props) => {
     const [userNameInput, setUserNameInput] = useState("");
-    const [ageInput, setAgeInput] = useState(null);
+    const [ageInput, setAgeInput] = useState('');
 
     const changeHandler = (event,setter) => {
         setter(event.target.value);
@@ -13,6 +13,13 @@ const UserData = (props) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
+        if (userNameInput.trim().length === 0 || ageInput.trim().length === 0) {
+            return alert('You should fill all filed wiht (Name) and (age) ');
+        }
+        if (ageInput < 1) {
+            return alert("Age Should be bigger than 0 ");
+        }
+
         const data = {
             name: userNameInput,
             age: ageInput
@@ -45,7 +52,7 @@ const UserData = (props) => {
                     onChange={(event) => changeHandler(event, setAgeInput)} />
             </div>
             <div className={styles.button}>
-                <Button type="submit" text="Add User"/>
+                <Button type="submit">Add User</Button>
             </div>
         </form>
     )

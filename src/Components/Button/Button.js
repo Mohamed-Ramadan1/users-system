@@ -3,8 +3,8 @@ import styeles from './Button.module.css'
 
 const Button = (props) => {
     return (
-        <div className={styeles.button}>
-            <button type={props.type}>{ props.text}</button>
+        <div className={styeles.button }>
+            <button type={props.type || 'button'}>{ props.children}</button>
         </div>
     )
 }
